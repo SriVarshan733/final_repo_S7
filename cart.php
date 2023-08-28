@@ -92,10 +92,9 @@ if ($result->num_rows > 0) {
                                         style="width: 6.5cm;  height: .55cm;  text-align: center; margin-top:5px;"><?php echo $statusText ?></span>
                                 </div>
                                 <div class="card-body prod-item">
-                                    <p class="truncate">Seller name : <?php echo $userName ?></p>
-                                    <p class="truncate">Seller Address : <?php echo $address ?></p>
-                                    <p class="truncate">Seller Mobile : <?php echo $sellerMobile ?></p>
-
+                                    <p class="truncate">Name : <?php echo $userName ?></p>
+                                    <p class="truncate">Address : <?php echo $address ?></p>
+                                    <p class="truncate">Mobile : <?php echo $sellerMobile ?></p>
                                     <form method="post" action="">
                                         <button class="button pay-button" type="submit" name="payButton"
                                             data-target="paynow.php">Pay Now</button>
