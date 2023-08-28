@@ -47,6 +47,7 @@ def checkChangeTheStatus(conn, listOfProductId):
                 winerId = tuple_with_highest_price[1]
                 bidAmt = tuple_with_highest_price[3]
                 newStatus = 2
+                print(winerId)
                 update_query = f"UPDATE bids SET status = {newStatus} WHERE user_id = {winerId}"
                 cursor.execute(update_query)
                 
@@ -61,7 +62,7 @@ def checkChangeTheStatus(conn, listOfProductId):
                 
                 conn.commit()
 
-    print("Data Updated Successfully.")    
+                print("Data Updated Successfully.")    
 
 connection = connect()
 listOfProductId = getListOfProductId(connection)
