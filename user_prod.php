@@ -16,6 +16,7 @@
 				<div class="card">
 					<div class="card-header">
 						<b>List of Products</b>
+						<a href="index.php?page=notification"><img src="notification.png"  class="notification" alt="Bar" width="40" height="40"></a>
 						<span class="float:right"><a class="btn btn-primary btn-block btn-sm col-sm-2 float-right" href="index.php?page=post_auction" id="new_product">
 					<i class="fa fa-plus"></i> New Entry
 				</a></span>
@@ -100,6 +101,10 @@
 		max-width:100px;
 		max-height: 150px;
 	}
+	.notification {
+    position: fixed;
+    right: 8cm;
+  }
 </style>
 <script>
 	$(document).ready(function(){
