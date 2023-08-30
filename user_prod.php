@@ -25,7 +25,7 @@
 						<table class="table table-condensed table-bordered table-hover">
 							<thead>
 								<tr>
-									<th class="text-center">#</th>
+									<th class="text-center">S.no</th>
 									<th class="">Img</th>
 									<th class="">Category</th>
 									<th class="">Product</th>
@@ -104,8 +104,8 @@
 		max-height: 150px;
 	}
 	.notification {
-    position: fixed;
-    right: 8cm;
+    position: static;
+    margin-left: 970px;
   }
 </style>
 <script>
