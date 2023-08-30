@@ -66,23 +66,45 @@ $cid = isset($_GET['category_id']) ? $_GET['category_id'] : 0;
                                 } 
                                 while($row = $result->fetch_assoc()):
                              ?>
+                             <?php
+$where = "";
+if ($cid > 0) {
+    $where = " AND category_id = ?";
+}
+$stmt = $conn->prepare("SELECT p.*, MAX(b.bid_amount) AS highest_bid FROM products p LEFT JOIN bids b ON p.id = b.product_id WHERE unix_timestamp(p.bid_end_datetime) >= ? $where GROUP BY p.id ORDER BY p.name ASC");
+$current_time = strtotime(date("Y-m-d H:i"));
+if ($cid > 0) {
+    $stmt->bind_param("ii", $current_time, $cid);
+} else {
+    $stmt->bind_param("i", $current_time);
+}
+
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows <= 0) {
+    echo "<center><h4><i>No Available Product.</i></h4></center>";
+}
+while ($row = $result->fetch_assoc()):
+?>
                              <div class="col-sm-4">
-                                 <div class="card" style="height: 9.8cm; width: 3.9cm;">
+                                 <div class="card" style="height: 11cm; width: 5.5cm;">
                                     <div class="float-right align-top bid-tag">
                                          <span class="badge badge-pill badge-primary text-white"><i class="fa fa-tag"></i> <?php echo number_format($row['start_bid']) ?></span>
                                      </div>
                                      <img class="card-img-top" src="admin/assets/uploads/<?php echo $row['img_fname'] ?>" alt="Card image cap">
                                       <div class="float-right align-top d-flex">
-                                         <span style="width: 3.9cm;" class="badge badge-pill badge-warning text-white"><i class="fa fa-hourglass-half"></i> <?php echo date("M d,Y h:i A",strtotime($row['bid_end_datetime'])) ?></span>
+                                         <span style="width: 5cm;" class="badge badge-pill badge-warning text-white"><i class="fa fa-hourglass-half"></i> <?php echo date("M d,Y h:i A",strtotime($row['bid_end_datetime'])) ?></span>
                                      </div>
                                      <div class="card-body prod-item">
-                                         <p><?php echo $row['name'] ?></p>
-                                         <p><small><?php echo $cat_arr[$row['category_id']] ?></small></p>
-                                         <p class="truncate"><?php echo $row['description'] ?></p>
+                                         <p>Product: <?php echo $row['name'] ?></p>
+                                         <p>Category: <?php echo $cat_arr[$row['category_id']] ?></p>
+                                         <p>Current Bid: ₹<?php echo $row['highest_bid'] ?></p>
                                         <button class="btn btn-primary btn-sm view_prod" type="button" data-id="<?php echo $row['id'] ?>"> View</button>
                                      </div>
                                  </div>
                              </div>
+                             <?php endwhile; ?>
                             <?php endwhile; ?>
                             </div>
                     </div>
