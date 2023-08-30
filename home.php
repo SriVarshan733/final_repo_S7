@@ -67,26 +67,24 @@ $cid = isset($_GET['category_id']) ? $_GET['category_id'] : 0;
                                 while($row = $result->fetch_assoc()):
                              ?>
                              <?php
-$where = "";
-if ($cid > 0) {
-    $where = " AND category_id = ?";
-}
-$stmt = $conn->prepare("SELECT p.*, MAX(b.bid_amount) AS highest_bid FROM products p LEFT JOIN bids b ON p.id = b.product_id WHERE unix_timestamp(p.bid_end_datetime) >= ? $where GROUP BY p.id ORDER BY p.name ASC");
-$current_time = strtotime(date("Y-m-d H:i"));
-if ($cid > 0) {
-    $stmt->bind_param("ii", $current_time, $cid);
-} else {
-    $stmt->bind_param("i", $current_time);
-}
-
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows <= 0) {
-    echo "<center><h4><i>No Available Product.</i></h4></center>";
-}
-while ($row = $result->fetch_assoc()):
-?>
+                               $where = "";
+                               if ($cid > 0) {
+                               $where = " AND category_id = ?";
+                               }
+                               $stmt = $conn->prepare("SELECT p.*, MAX(b.bid_amount) AS highest_bid FROM products p LEFT JOIN bids b ON p.id = b.product_id WHERE unix_timestamp(p.bid_end_datetime) >= ? $where GROUP BY p.id ORDER BY p.name ASC");
+                               $current_time = strtotime(date("Y-m-d H:i"));
+                               if ($cid > 0) {
+                               $stmt->bind_param("ii", $current_time, $cid);
+                               } else {
+                               $stmt->bind_param("i", $current_time);
+                               }
+                               $stmt->execute();
+                               $result = $stmt->get_result();
+                               if ($result->num_rows <= 0) {
+                               echo "<center><h4><i>No Available Product.</i></h4></center>";
+                               }
+                               while ($row = $result->fetch_assoc()):
+                             ?>
                              <div class="col-sm-4">
                                  <div class="card" style="height: 11cm; width: 5.5cm;">
                                     <div class="float-right align-top bid-tag">
