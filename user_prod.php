@@ -42,7 +42,9 @@
 								while($row = $qry->fetch_assoc()){
 									$cat[$row['id']] = $row['name'];
 								}
-								$products = $conn->query("SELECT * FROM products order by name asc ");
+								$sessionId = $_SESSION['login_id'];
+                                $conns = new mysqli('localhost', 'root', '', 'kk') or die("Could not connect to mysql" . mysqli_error($con));
+								$products = $conn->query("SELECT * FROM products where seller_authId = '$sessionId' order by name asc ");
 								while($row=$products->fetch_assoc()):
 									$get = $conn->query("SELECT * FROM bids where product_id = {$row['id']} order by bid_amount desc limit 1 ");
 									$bid = $get->num_rows > 0 ? $get->fetch_array()['bid_amount'] : 0 ;
