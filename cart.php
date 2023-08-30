@@ -23,12 +23,12 @@
     .button:hover {
         background-color: #0056b3;
     }
+
     </style>
 </head>
 
 
 <body>
-
     <?php
 $sessionId = $_SESSION['login_id'];
 $conns = new mysqli('localhost', 'root', '', 'kk') or die("Could not connect to mysql" . mysqli_error($con));
@@ -112,7 +112,7 @@ if ($result->num_rows > 0) {
 
 ?><?php
   } else {
-    echo "Invalid credentials. Please try again.";
+    echo "YOUR CART IS EMPTY.";
   }
 
 $conns->close();
