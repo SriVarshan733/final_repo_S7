@@ -16,10 +16,8 @@
 				<div class="card">
 					<div class="card-header">
 						<b>List of Products</b>
-						<a href="index.php?page=notification"><img src="notification.png"  class="notification" alt="Bar" width="40" height="40"></a>
-						<span class="float:right"><a class="btn btn-primary btn-block btn-sm col-sm-2 float-right" href="index.php?page=post_auction" id="new_product">
-					<i class="fa fa-plus"></i> New Entry
-				</a></span>
+						<span class="float:right"><a class="button-18 float-right" href="index.php?page=post_auction" id="new_product">New Entry</a></span>
+				        <span class="float:right"><a class="button-18 float-right" href="index.php?page=notification" id="new_product">Notification</a></span>
 					</div>
 					<div class="card-body">
 						<table class="table table-condensed table-bordered table-hover">
@@ -107,6 +105,53 @@
     position: static;
     margin-left: 970px;
   }
+
+  /* CSS */
+.button-18 {
+  align-items: center;
+  background-color: #0A66C2;
+  border: 0;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  max-width: 480px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+}
+
+.button-18:hover,
+.button-18:focus { 
+  background-color: #16437E;
+  color: #ffffff;
+}
+
+.button-18:active {
+  background: #09223b;
+  color: rgb(255, 255, 255, .7);
+}
+
+.button-18:disabled { 
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, .08);
+  color: rgba(0, 0, 0, .3);
+}
 </style>
 <script>
 	$(document).ready(function(){
