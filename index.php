@@ -42,8 +42,8 @@
   <body>
     <div class="sidebar">
       <div class="logo-details">
-        <i class="bx bxl-c-plus-plus icon"></i>
-        <div class="logo_name"><?php echo $_SESSION['system']['name'] ?></div>
+      <i class="bx bx-grid-alt icon"></i>
+        <div class="logo_name">Menus</div>
         <i class="bx bx-menu" id="btn"></i>
       </div>
       <ul class="nav-list">
@@ -54,10 +54,10 @@
         </li>
         <li>
           <a href="index.php?page=home">
-            <i class="bx bx-grid-alt"></i>
-            <span class="links_name">Dashboard</span>
+            <i class="bx bx-home"></i>
+            <span class="links_name">Home</span>
           </a>
-          <span class="tooltip">Dashboard</span>
+          <span class="tooltip">Home</span>
         </li>
         <?php if(isset($_SESSION['login_id'])): ?>
         <li>
@@ -144,6 +144,7 @@
       </ul>
     </div>
     <section class="home-section">
+    <img src=header.png width="1420px" height="80px"> 
       <main id="main-field">
         <?php 
         $page = isset($_GET['page']) ? $_GET['page'] : 'home';
@@ -216,7 +217,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
                     <h2 class="mt-0 text-white"><b>Contact us</b></h2>
-                    <hr class="divider my-4" />
+                    <center><hr class="divider my-4" /></center>
                 </div>
             </div>
             <div class="row">
