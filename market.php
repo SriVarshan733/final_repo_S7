@@ -97,7 +97,8 @@
 <body>
     <!-- Price List Section -->
         <div class="container">
-            <h2>Price List</h2>
+            <center><h2><i class="bx bx-money"></i> Demand</h2></center>
+            <br></br>
             <ul class="responsive-table" id="marketTable">
                 <li class="table-header">
                     <div class="col col-1">S.No</div>
@@ -108,6 +109,7 @@
             </ul>
             <h8 style="color:red;">*Please note that above shown content in the table is just a prediction made by our team</h8>
         </div>
+        <br></br>git 
 
         <script>
             // Replace this URL with the actual URL of your JSON file
