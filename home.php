@@ -20,27 +20,17 @@ include 'admin/db_connect.php';
 <?php 
 $cid = isset($_GET['category_id']) ? $_GET['category_id'] : 0;
 ?>
+<?php
+$stmt = $conn->prepare("SELECT * FROM categories ORDER BY name ASC");
+$stmt->execute();
+$result = $stmt->get_result();
+while($row = $result->fetch_assoc()):
+$cat_arr[$row['id']] = $row['name'];
+?>
+<?php endwhile; ?>
 <div class="contain-fluid">
     <div class="col-lg-12">
         <div class="row">
-            <div class="col-md-3">
-            <div class="card-header"><b><h3>Categories</h3></b></div>
-                <div class="card">
-                    <div class="card-body">
-                        <ul class='list-group' id='cat-list'>
-                            <?php
-                                $stmt = $conn->prepare("SELECT * FROM categories ORDER BY name ASC");
-                                $stmt->execute();
-                                $result = $stmt->get_result();
-                                while($row = $result->fetch_assoc()):
-                                    $cat_arr[$row['id']] = $row['name'];
-                             ?>
-                            <li class='list-group-item' data-id='<?php echo $row['id'] ?>' data-href="index.php?page=home&category_id=<?php echo $row['id'] ?>"><?php echo ucwords($row['name']) ?></li>
-                            <?php endwhile; ?>
-                        </ul>
-                    </div>
-                </div>
-            </div>
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-body">
