@@ -28,40 +28,134 @@
         <div class="toast-body text-white">
         </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-        <div class="container">
-            <img src="https://img.icons8.com/?size=512&id=ME2aFAiY2j6h&format=png" width="40px" alt="Mountains">
-            <a class="navbar-brand js-scroll-trigger" href="./"><?php echo $_SESSION['system']['name'] ?></a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="auction_log.php">Post Auction</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=market">Demand</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=cart">Cart</a></li>
-                    <?php if(isset($_SESSION['login_id'])): ?>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger"
-                            href="admin/ajax.php?action=logout2"><?php echo "Welcome ".$_SESSION['login_name'] ?> <i
-                                class="fa fa-power-off"></i></a></li>
-                    <?php else: ?>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="javascript:void(0)"
-                            id="login_now">Login</a></li>
-                    <?php endif; ?>
-                </ul>
+    <!DOCTYPE html>
+<!-- Website - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bid.it</title>
+    <link rel="stylesheet" href="stylehome.css" />
+    <!-- Boxicons CDN Link -->
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo-details">
+        <i class="bx bxl-c-plus-plus icon"></i>
+        <div class="logo_name"><?php echo $_SESSION['system']['name'] ?></div>
+        <i class="bx bx-menu" id="btn"></i>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <i class="bx bx-search"></i>
+          <input type="text" placeholder="Search..." />
+          <span class="tooltip">Search</span>
+        </li>
+        <li>
+          <a href="index.php?page=home">
+            <i class="bx bx-grid-alt"></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+          <span class="tooltip">Dashboard</span>
+        </li>
+        <?php if(isset($_SESSION['login_id'])): ?>
+        <li>
+          <a href="#">
+            <i class="bx bx-user"></i>
+            <span class="links_name " href=""><?php echo $_SESSION['login_name'] ?></span>
+          </a>
+          <span class="tooltip"><?php echo $_SESSION['login_name'] ?></span>
+        </li>
+        <li>
+          <a href="auction_log.php">
+            <i class="bx bx-folder"></i>
+            <span class="links_name">Post Auction</span>
+          </a>
+          <span class="tooltip">Post Auction</span>
+        </li>
+        <?php else: ?>
+            <li>
+          <a href="">
+            <i class="bx bx-user"></i>
+            <span class="links_name " href="">Login</span>
+          </a>
+          <span class="tooltip">Please login</span>
+        </li>
+        <?php endif; ?>
+        <li>
+          <a href="index.php?page=market">
+            <i class="bx bx-pie-chart-alt-2"></i>
+            <span class="links_name">Analytics</span>
+          </a>
+          <span class="tooltip">Analytics</span>
+        </li>
+        <li>
+          <a href="index.php?page=market">
+            <i class="bx bx-card"></i>
+            <span class="links_name">Category</span>
+          </a>
+          <span class="tooltip">Category</span>
+        </li>
+        <li>
+          <a href="index.php?page=cart">
+            <i class="bx bx-cart-alt"></i>
+            <span class="links_name">Cart</span>
+          </a>
+          <span class="tooltip">Cart</span>
+        </li>
+        <li>
+          <a href="index.php?page=about">
+            <i class="bx bx-book"></i>
+            <span class="links_name">Policy</span>
+          </a>
+          <span class="tooltip">Policy</span>
+        </li>
+        <li>
+          <a href="mailto:hello@srivarshan.org">
+            <i class="bx bx-phone"></i>
+            <span class="links_name">Contact</span>
+          </a>
+          <span class="tooltip">Contact</span>
+        </li>
+        <?php if(isset($_SESSION['login_id'])): ?>
+        <li class="profile">
+          <div class="profile-details">
+          <i class="bx bx-user"></i>
+            <div class="name_job">
+              <div class="name"><?php echo $_SESSION['login_name'] ?></div>
+              <div class="job">User</div>
             </div>
-        </div>
-    </nav>
-    <main id="main-field">
+          </div>
+          <a href="admin/ajax.php?action=logout2"><i class="bx bx-log-out" id="log_out"></i></a>
+        </li>
+        <?php else: ?>
+        <li class="profile">
+          <div class="profile-details">
+          <i class="bx bx-user"></i>
+            <div class="name_job">
+              <div class="name">login</div>
+              <div class="job">Please login</div>
+            </div>
+          </div>
+          <a href="javascript:void(0)" id="login_now"><i class="bx bx-log-in" id="log_out"></i></a>
+        </li>
+        <?php endif; ?>
+      </ul>
+    </div>
+    <section class="home-section">
+      <main id="main-field">
         <?php 
         $page = isset($_GET['page']) ? $_GET['page'] : 'home';
         include $page.'.php';
         ?>
 
     </main>
+    </section>
+
+    <script src="scripthome.js"></script>
+  </body>
+</html>
     <div class="modal fade" id="confirm_modal" role='dialog'>
         <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
@@ -121,7 +215,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <h2 class="mt-0 text-white">Contact us</h2>
+                    <h2 class="mt-0 text-white"><b>Contact us</b></h2>
                     <hr class="divider my-4" />
                 </div>
             </div>
