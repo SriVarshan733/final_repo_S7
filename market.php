@@ -96,7 +96,6 @@
 
 <body>
     <!-- Price List Section -->
-    <section class="page-section">
         <div class="container">
             <h2>Price List</h2>
             <ul class="responsive-table" id="marketTable">
@@ -165,7 +164,3 @@
 </body>
 
 </html>
-
-
-    </section>
-
