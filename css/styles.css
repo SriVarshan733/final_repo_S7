@@ -4347,10 +4347,12 @@ input[type=button].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #E4E9F7;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+  margin-bottom: 40px;
+  margin-top: 10px;
 }
 .card > hr {
   margin-right: 0;
@@ -10005,7 +10007,7 @@ html {
 }
 
 hr.divider {
-  max-width: 3.25rem;
+  max-width: 10cm;
   border-width: 0.2rem;
   border-color: #007bff;
 }
