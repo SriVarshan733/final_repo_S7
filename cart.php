@@ -177,7 +177,7 @@
                             $today = new DateTime();
                             $targetDate = new DateTime($endDate);
 
-                            $statusText = ($status == 2) ? "Confirmed" : "Loose";
+                            $statusText = ($status == 2) ? "Confirmed" : "pending";
                     ?>
                             <th>
                             <div class="wrapper">
