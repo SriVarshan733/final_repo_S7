@@ -7,11 +7,12 @@ user = "root"
 password = ""
 database = "kk"
 
+
 def connect():
     try:
-        connection = mysql.connector.connect(host=host, user=user, password=password, database=database)
+        connection = mysql.connector.connect(host=host,user=user,password=password,database=database)
         if connection.is_connected():
-            print("Db Connected")
+            print("Db Connected ")
             return connection
     except mysql.connector.Error as e:
         print("Error:", e)
@@ -26,21 +27,6 @@ def getListOfProductId(conn):
     cursor.execute(query)
     results = cursor.fetchall()
     return convert_to_flat_list(results)
-
-def deleteLowestBid(conn, product_id):
-    cursor = conn.cursor()
-    query = f"SELECT * FROM bids WHERE product_id = {product_id}"
-    cursor.execute(query)
-    bids = cursor.fetchall()
-    if len(bids) > 1:
-        # Find the bid with the lowest bid_amount
-        min_bid = min(bids, key=lambda item: item[3])
-        lowest_bid_id = min_bid[0]
-        # Delete the lowest bid
-        delete_query = f"DELETE FROM bids WHERE id = {lowest_bid_id}"
-        cursor.execute(delete_query)
-        conn.commit()
-        print(f"Deleted bid with id {lowest_bid_id} for product_id {product_id}")
 
 def checkChangeTheStatus(conn, listOfProductId):
     for i in listOfProductId:
@@ -76,14 +62,8 @@ def checkChangeTheStatus(conn, listOfProductId):
                 
                 conn.commit()
 
-                print("Data Updated Successfully.")
+                print("Data Updated Successfully.")    
 
 connection = connect()
 listOfProductId = getListOfProductId(connection)
-
-# Iterate through product IDs and delete the lowest bid for each product
-for product_id in listOfProductId:
-    deleteLowestBid(connection, product_id)
-
-# After deleting the lowest bids, you can continue with the rest of your code
 checkChangeTheStatus(connection, listOfProductId)
