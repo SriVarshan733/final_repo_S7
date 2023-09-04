@@ -61,7 +61,7 @@
         </li>
         <?php if(isset($_SESSION['login_id'])): ?>
         <li>
-          <a href="#">
+          <a href="index.php?page=bids_user">
             <i class="bx bx-user"></i>
             <span class="links_name " href=""><?php echo $_SESSION['login_name'] ?></span>
           </a>
@@ -144,7 +144,7 @@
       </ul>
     </div>
     <section class="home-section">
-    <img src=header.png width="1420px" height="80px"> 
+    <a href="index.php?page=home"><img src=header.png width="1420px" height="80px"></a>
       <main id="main-field">
         <?php 
         $page = isset($_GET['page']) ? $_GET['page'] : 'home';
