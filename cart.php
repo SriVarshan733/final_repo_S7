@@ -8,22 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <style>
-    .button {
-        width: 100%;
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-    }
-
-    .button:hover {
-        background-color: #0056b3;
-    }
-
 
     .wrapper {
   height: 420px;
