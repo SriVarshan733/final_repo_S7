@@ -52,7 +52,7 @@
 									<td class="text-center"><?php echo $i++ ?></td>
 									<td class="">
 										 <div class="row justify-content-center">
-										 	<img src="<?php echo 'admin/assets/uploads/'.$row['img_fname'] ?>" alt="">
+										 	<img class="userimg" src="<?php echo 'admin/assets/uploads/'.$row['img_fname'] ?>" alt="">
 										 </div>
 									</td>
 									<td>
@@ -97,7 +97,7 @@
 		max-width:100px;
 		max-height: 150px;
 	}
-	img{
+	.userimg{
 		max-width:100px;
 		max-height: 150px;
 	}
