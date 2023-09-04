@@ -158,7 +158,7 @@
                         $bit_amount = $row['bid_amount'];
                         $status = $row['status'];
                         $date_created = $row['date_created'];
-                        $queryForProduct = "SELECT * FROM products WHERE id = '$product_id'";
+                        $queryForProduct = "SELECT * FROM products WHERE id = '$product_id' and $status = '2'";
                         $resultForProduct = $conns->query($queryForProduct);
 
                         while ($row1 = $resultForProduct->fetch_assoc()) {
