@@ -28,7 +28,7 @@ while($row = $result->fetch_assoc()):
 $cat_arr[$row['id']] = $row['name'];
 ?>
 <?php endwhile; ?>
-<div class="contain-fluid">
+<div class="container-fluid">
     <div class="col-lg-12">
         <div class="row">
             <div class="col-md-9">
