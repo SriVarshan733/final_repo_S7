@@ -15,7 +15,7 @@ include 'admin/db_connect.php';
     .bid-tag {
     position: absolute;
     right: .5em;
-}
+    }
 </style>
 <?php 
 $cid = isset($_GET['category_id']) ? $_GET['category_id'] : 0;
@@ -51,7 +51,7 @@ $cat_arr[$row['id']] = $row['name'];
                                 $result = $stmt->get_result();
                                 
                                 if($result->num_rows <= 0){
-                                    echo "<center><h4><i>No Available Product.</i></h4></center>";
+                                    echo "<center><img src='no_product.png' widht='500px',height='300px';><h3>No Auction Available !</h3></center>";
                                 } 
                                 while($row = $result->fetch_assoc()):
                              ?>
@@ -70,7 +70,7 @@ $cat_arr[$row['id']] = $row['name'];
                                $stmt->execute();
                                $result = $stmt->get_result();
                                if ($result->num_rows <= 0) {
-                               echo "<center><h4><i>No Available Product.</i></h4></center>";
+                               echo "<center><img src='no_product.png' widht='500px',height='300px';><h3>No Auction Available !</h3></center>";
                                }
                                while ($row = $result->fetch_assoc()):
                              ?>
