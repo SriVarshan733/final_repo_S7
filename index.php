@@ -105,6 +105,13 @@
           <span class="tooltip">Policy</span>
         </li>
         <li>
+          <a href="index.php?page=Subcriptions" onclick="runPythonScriptAndRedirect();">
+          <i class='bx bx-user-plus'></i>
+            <span class="links_name">Subcriptions</span>
+          </a>
+          <span class="tooltip">Subcriptions</span>
+        </li>
+        <li>
           <a href="mailto:hello@srivarshan.org" onclick="runPythonScriptAndRedirect();">
             <i class="bx bx-phone"></i>
             <span class="links_name">Contact</span>
@@ -137,7 +144,7 @@
       </ul>
     </div>
     <section class="home-section">
-    <a href="index.php?page=home" onclick="runPythonScriptAndRedirect();"><img src=header.png width="1420px" height="80px"></a>
+    <a href="index.php?page=home" onclick="runPythonScriptAndRedirect();"><img src=new-head.png width="1420px" height="80px"></a>
       <main id="main-field">
         <?php 
         $page = isset($_GET['page']) ? $_GET['page'] : 'home';
