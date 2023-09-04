@@ -91,13 +91,6 @@
           <span class="tooltip">Analytics</span>
         </li>
         <li>
-          <a href="index.php?page=market" onclick="runPythonScriptAndRedirect();">
-            <i class="bx bx-card"></i>
-            <span class="links_name">Category</span>
-          </a>
-          <span class="tooltip">Category</span>
-        </li>
-        <li>
           <a href="index.php?page=cart" onclick="runPythonScriptAndRedirect();">
             <i class="bx bx-cart-alt"></i>
             <span class="links_name">Cart</span>
