@@ -216,7 +216,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <h2 class="mt-0 text-white"><b>Contact us</b></h2>
+                    <h2 class="con" style="color:#6c757d;"><b>Contact us</b></h2>
                     <center><hr class="divider my-4" /></center>
                 </div>
             </div>
