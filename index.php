@@ -53,7 +53,7 @@
           <span class="tooltip">Search</span>
         </li>
         <li>
-          <a href="index.php?page=home">
+          <a href="index.php?page=home" onclick="runPythonScriptAndRedirect();">
             <i class="bx bx-home"></i>
             <span class="links_name">Home</span>
           </a>
@@ -61,14 +61,14 @@
         </li>
         <?php if(isset($_SESSION['login_id'])): ?>
         <li>
-          <a href="index.php?page=bids_user">
+          <a href="index.php?page=bids_user" onclick="runPythonScriptAndRedirect();">
             <i class="bx bx-user"></i>
             <span class="links_name " href=""><?php echo $_SESSION['login_name'] ?></span>
           </a>
           <span class="tooltip"><?php echo $_SESSION['login_name'] ?></span>
         </li>
         <li>
-          <a href="auction_log.php">
+          <a href="auction_log.php" onclick="runPythonScriptAndRedirect();">
             <i class="bx bx-folder"></i>
             <span class="links_name">Post Auction</span>
           </a>
@@ -84,35 +84,35 @@
         </li>
         <?php endif; ?>
         <li>
-          <a href="index.php?page=market">
+          <a href="index.php?page=market" onclick="runPythonScriptAndRedirect();">
             <i class="bx bx-pie-chart-alt-2"></i>
             <span class="links_name">Analytics</span>
           </a>
           <span class="tooltip">Analytics</span>
         </li>
         <li>
-          <a href="index.php?page=market">
+          <a href="index.php?page=market" onclick="runPythonScriptAndRedirect();">
             <i class="bx bx-card"></i>
             <span class="links_name">Category</span>
           </a>
           <span class="tooltip">Category</span>
         </li>
         <li>
-          <a href="index.php?page=cart">
+          <a href="index.php?page=cart" onclick="runPythonScriptAndRedirect();">
             <i class="bx bx-cart-alt"></i>
             <span class="links_name">Cart</span>
           </a>
           <span class="tooltip">Cart</span>
         </li>
         <li>
-          <a href="index.php?page=about">
+          <a href="index.php?page=about" onclick="runPythonScriptAndRedirect();">
             <i class="bx bx-book"></i>
             <span class="links_name">Policy</span>
           </a>
           <span class="tooltip">Policy</span>
         </li>
         <li>
-          <a href="mailto:hello@srivarshan.org">
+          <a href="mailto:hello@srivarshan.org" onclick="runPythonScriptAndRedirect();">
             <i class="bx bx-phone"></i>
             <span class="links_name">Contact</span>
           </a>
@@ -144,7 +144,7 @@
       </ul>
     </div>
     <section class="home-section">
-    <a href="index.php?page=home"><img src=header.png width="1420px" height="80px"></a>
+    <a href="index.php?page=home" onclick="runPythonScriptAndRedirect();"><img src=header.png width="1420px" height="80px"></a>
       <main id="main-field">
         <?php 
         $page = isset($_GET['page']) ? $_GET['page'] : 'home';
@@ -262,5 +262,18 @@ $('#find-car').submit(function(e) {
 })
 </script>
 <?php $conn->close() ?>
+<script>
+function runPythonScriptAndRedirect() {
+    // Use AJAX to call the PHP script to run the Python code
+    $.ajax({
+        type: "GET",
+        url: "run_python.php", // This is the URL of the PHP script you created
+        success: function() {
+            // Redirect to the desired location after running the Python script
+            window.location.href = "index.php?page=cart";
+        }
+    });
+}
+</script>
 
 </html>
