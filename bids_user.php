@@ -144,20 +144,20 @@
                 die("Database connection failed: " . $e->getMessage());
             }
                 $sessionId = $_SESSION['login_id'];
-    // Query to calculate the total amount of success bids for the logged-in user
+                // Query to calculate the total amount of success bids for the logged-in user
                 $sql = "SELECT SUM(bid_amount) AS total_success_bids FROM bids WHERE user_id = :user_id AND status = 2";
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindParam(':user_id', $sessionId, PDO::PARAM_INT);
                 $stmt->execute();
                 $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 $totalSuccessBids = $result['total_success_bids'];
-    // Output the HTML
+                // Output the HTML
                 echo '<div class="d-flex flex-column text-right mr-2">';
                 echo '    <span class="current-balance">Total Debits</span>';
             if ($totalSuccessBids !== null) {
                 echo '    <span class="amount"><span class="dollar-sign">₹ </span>' . $totalSuccessBids . '</span>';
             } else {
-    // Display ₹ 0 if there are no successful bids
+                // Display ₹ 0 if there are no successful bids
                 echo '    <span class="amount"><span class="dollar-sign">₹ </span>0</span>';
             }
                 echo '</div>';
@@ -167,19 +167,6 @@
 		<span class="recent-orders">User Activity</span>
 	</div>
 	<?php
-        $host = "localhost";
-        $dbname = "kk";
-        $username = "root";
-        $password = "";
-
-        try {
-             $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            die("Database connection failed: " . $e->getMessage());
-        }
-    ?>
-	<?php
         $sessionId = $_SESSION['login_id'];
         $sql = "SELECT COUNT(*) AS bid_count FROM bids WHERE user_id = :user_id";
         $stmt = $pdo->prepare($sql);
@@ -188,29 +175,18 @@
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($result && isset($result['bid_count'])) {
         $bidCount = $result['bid_count'];
-    
-    // Output the HTML
+        // Output the HTML
         echo '<div class="wishlist-border pt-2">';
         echo '    <span class="wishlist">Bids Done : <span class="amount">' . $bidCount . '</span></span>';
         echo '</div>';
         } else {
-    // Handle the case where no bids were found
+        // Handle the case where no bids were found
         echo '<div class="wishlist-border pt-2">';
         echo '    <span class="wishlist">Bids Done : <span class="amount">0</span></span>';
         echo '</div>';
        }
        ?>
-	<?php
-        $host = "localhost";
-        $dbname = "kk";
-        $username = "root";
-        $password = "";
-    try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
-    }
+    <?php
     $sessionId = $_SESSION['login_id'];
     $sql = "SELECT COUNT(*) AS success_count FROM bids WHERE user_id = :user_id AND status = 2";
     $stmt = $pdo->prepare($sql);
