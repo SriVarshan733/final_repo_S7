@@ -178,7 +178,7 @@
                             <p><span>₹</span><?php echo number_format($bit_amount) ?></p>
                             <?php if ($status == 1) { // Check if status is 1 ?>
                             <button type="button" disabled>Pay now</button>
-                            <?php } else { ?>
+                            <?php } else { ?><br>
                             <a href="paynow.php"><button type="button">Pay now</button></a>
                             <?php } ?>
                             </div>
