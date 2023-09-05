@@ -127,7 +127,7 @@
 				</span>
 			</span>
 			<p class="title">Merchant</p>
-			<p class="info">This plan is for those who have a team already and running a large business.</p>
+			<p class="info">This <b>1-Year</b> plan is for those who Post products in our Website.</p>
 			<ul class="features">
 				<li>
 					<span class="icon">
