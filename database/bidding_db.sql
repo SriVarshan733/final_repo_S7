@@ -159,6 +159,16 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `email`, `contact`, `
 (1, 'Administrator', 'admin', '0192023a7bbd73250516f069df18b500', 'admin@admin.com', '+123456789', '', 1, '2020-10-27 09:19:59'),
 (5, 'John Smith', 'jsmith', '1254737c076cf867dc53d60a0364f38e', 'jsmith@sample.com', '+18456-5455-55', 'Sample', 2, '2020-10-27 14:18:32');
 
+
+CREATE TABLE user_messages (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    login_id INT,
+    login_name VARCHAR(255),
+    login_email VARCHAR(255),
+    message TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 --
 -- Indexes for dumped tables
 --
