@@ -48,16 +48,18 @@
       </div>
       <ul class="nav-list">
         <li>
-          <i class="bx bx-search"></i>
-          <input type="text" placeholder="Search..." />
-          <span class="tooltip">Search</span>
-        </li>
-        <li>
           <a href="index.php?page=home" onclick="runPythonScriptAndRedirect();">
             <i class="bx bx-home"></i>
             <span class="links_name">Home</span>
           </a>
           <span class="tooltip">Home</span>
+        </li>
+        <li>
+          <a href="index.php?page=cart" onclick="runPythonScriptAndRedirect();">
+            <i class="bx bx-cart-alt"></i>
+            <span class="links_name">Cart</span>
+          </a>
+          <span class="tooltip">Cart</span>
         </li>
         <?php if(isset($_SESSION['login_id'])): ?>
         <li>
@@ -73,6 +75,13 @@
             <span class="links_name">Post Auction</span>
           </a>
           <span class="tooltip">Post Auction</span>
+        </li>
+        <li>
+          <a href="index.php?page=contact" onclick="runPythonScriptAndRedirect();">
+          <i class='bx bx-mail-send'></i>
+            <span class="links_name">Contact</span>
+          </a>
+          <span class="tooltip">Contact</span>
         </li>
         <?php else: ?>
             <li>
@@ -91,13 +100,6 @@
           <span class="tooltip">Analytics</span>
         </li>
         <li>
-          <a href="index.php?page=cart" onclick="runPythonScriptAndRedirect();">
-            <i class="bx bx-cart-alt"></i>
-            <span class="links_name">Cart</span>
-          </a>
-          <span class="tooltip">Cart</span>
-        </li>
-        <li>
           <a href="index.php?page=about" onclick="runPythonScriptAndRedirect();">
             <i class="bx bx-book"></i>
             <span class="links_name">Policy</span>
@@ -110,13 +112,6 @@
             <span class="links_name">Subcriptions</span>
           </a>
           <span class="tooltip">Subcriptions</span>
-        </li>
-        <li>
-          <a href="mailto:hello@srivarshan.org" onclick="runPythonScriptAndRedirect();">
-            <i class="bx bx-phone"></i>
-            <span class="links_name">Contact</span>
-          </a>
-          <span class="tooltip">Contact</span>
         </li>
         <?php if(isset($_SESSION['login_id'])): ?>
         <li class="profile">
@@ -144,7 +139,7 @@
       </ul>
     </div>
     <section class="home-section">
-    <a href="index.php?page=home" onclick="runPythonScriptAndRedirect();"><img src=new-head.png width="1420px" height="80px"></a>
+    <a href="index.php?page=home" onclick="runPythonScriptAndRedirect();"><img src=new-head.png width="1270px" height="80px"></a>
       <main id="main-field">
         <?php 
         $page = isset($_GET['page']) ? $_GET['page'] : 'home';
