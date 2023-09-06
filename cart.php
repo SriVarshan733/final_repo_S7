@@ -189,7 +189,7 @@
                         }
                     }
                     if ($status == '1') {
-                      echo "<center><img src='empty-cart.png' width='400px' height='300px'><br><br><h2>Your cart is Empty !</h2></center>";
+                      echo "<center><img src='images/empty-cart.png' width='400px' height='300px'><br><br><h2>Your cart is Empty !</h2></center>";
                   }
                     ?>
                 </table>
@@ -201,7 +201,7 @@
         $conns->close();
     } else {
         // 'login_id' is not set in the session, display a message
-        echo "<center><img src='login-please.png' width='550px' height='300px'><br><br><h2>Please Login !</h2></center>";
+        echo "<center><img src='images/login-please.png' width='550px' height='300px'><br><br><h2>Please Login !</h2></center>";
     }
     ?>
     <script>

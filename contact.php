@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="contact.css">
+<link rel="stylesheet" href="css/contact.css">
 
 </head>
 <body>
@@ -33,7 +33,7 @@
 </div>
 <p class="result-message centered">Thank you for your message</p>
 <!-- partial -->
-  <script  src="contact.js"></script>
+  <script  src="js/contact.js"></script>
 
 </body>
 </html>

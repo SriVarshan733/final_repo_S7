@@ -34,7 +34,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Bid.it</title>
-    <link rel="stylesheet" href="stylehome.css" />
+    <link rel="stylesheet" href="css/stylehome.css" />
     <!-- Boxicons CDN Link -->
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -139,7 +139,7 @@
       </ul>
     </div>
     <section class="home-section">
-    <a href="index.php?page=home" onclick="runPythonScriptAndRedirect();"><img src=new-head.png width="1270px" height="80px"></a>
+    <a href="index.php?page=home" onclick="runPythonScriptAndRedirect();"><img src=images/new-head.png width="1270px" height="80px"></a>
       <main id="main-field">
         <?php 
         $page = isset($_GET['page']) ? $_GET['page'] : 'home';
@@ -149,7 +149,7 @@
     </main>
     </section>
 
-    <script src="scripthome.js"></script>
+    <script src="js/scripthome.js"></script>
   </body>
 </html>
     <div class="modal fade" id="confirm_modal" role='dialog'>
