@@ -10,7 +10,7 @@
       <form action="" method="post"> <!-- Form submission to login.php -->
         <input class="input" type="text" name="name" placeholder="Bid.it Username">
         <input class="input" type="number" name="farmer_id" placeholder="farmer-id">
-        <input class="input" type="number" name="phone_number" placeholder="phone number">
+        <input class="input" type="num" name="phone_number" placeholder="phone number">
         <center><button class="button-86" type="submit" role="button">Log in</button></center>
       </form>
     </div>
