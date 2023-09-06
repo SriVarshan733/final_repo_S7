@@ -1,5 +1,5 @@
 <head>
-  <link rel="stylesheet" href="auction_log.scss">
+  <link rel="stylesheet" href="css/auction_log.scss">
 </head>
 <body>
   <div class="container">
