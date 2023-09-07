@@ -196,7 +196,7 @@
             </div>
     <?php
         } else {
-              echo "<center><h2>YOUR CART IS EMPTY</h2><center>";
+              echo "<center><img src='images/empty-cart.png' width='400px' height='300px'><h2>YOUR CART IS EMPTY</h2><center>";
             }
         $conns->close();
     } else {
