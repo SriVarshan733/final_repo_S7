@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<?php 
+include 'admin/db_connect.php'; 
+?>
 <title>cart</title>
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
     <meta charset="utf-8" />
@@ -127,9 +129,8 @@
     // Check if 'login_id' is defined in the session
     if (isset($_SESSION['login_id'])) {
         $sessionId = $_SESSION['login_id'];
-        $conns = new mysqli('localhost', 'root', '', 'kk') or die("Could not connect to mysql" . mysqli_error($con));
         $query = "SELECT * FROM bids WHERE user_id = '$sessionId'";
-        $result = $conns->query($query);
+        $result = $conn->query($query);
 
         if ($result->num_rows > 0) {
     ?>
@@ -143,7 +144,7 @@
                         $status = $row['status'];
                         $date_created = $row['date_created'];
                         $queryForProduct = "SELECT * FROM products WHERE id = '$product_id' and $status = '2'";
-                        $resultForProduct = $conns->query($queryForProduct);
+                        $resultForProduct = $conn->query($queryForProduct);
 
                         while ($row1 = $resultForProduct->fetch_assoc()) {
                             $contact = $row1['contact'];
@@ -198,7 +199,7 @@
         } else {
               echo "<center><img src='images/empty-cart.png' width='400px' height='300px'><h2>YOUR CART IS EMPTY</h2><center>";
             }
-        $conns->close();
+        $conn->close();
     } else {
         // 'login_id' is not set in the session, display a message
         echo "<center><img src='images/login-please.png' width='550px' height='300px'><br><br><h2>Please Login !</h2></center>";
