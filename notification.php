@@ -1,6 +1,9 @@
 <html>
 
 <head>
+     <?php 
+     include 'admin/db_connect.php'; 
+     ?>
     <title>Notification</title>
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
     <meta charset="utf-8" />
@@ -174,10 +177,8 @@
 
     <?php
 $sessionId = $_SESSION['login_id'];
-$conns = new mysqli('localhost', 'root', '', 'kk') or die("Could not connect to mysql" . mysqli_error($con));
-
 $queryForProdcut = "SELECT * FROM products WHERE seller_authid = '$sessionId'";
-$result = $conns->query($queryForProdcut);
+$result = $conn->query($queryForProdcut);
 
 if ($result->num_rows > 0) {
     while ($row1 = $result->fetch_assoc()) {
@@ -192,7 +193,7 @@ if ($result->num_rows > 0) {
         $buyerId = $row1['buyer_id'];
         $bitAmt = $row1['bid_amt'];
         $querForBuyerProfile = "SELECT * FROM users WHERE id = '$buyerId'";
-        $result1 = $conns->query($querForBuyerProfile);
+        $result1 = $conn->query($querForBuyerProfile);
 
         while ($row2 = $result1->fetch_assoc()) {
             $buyerName = $row2['name']; 
