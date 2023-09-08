@@ -131,7 +131,6 @@ include 'admin/db_connect.php';
         $sessionId = $_SESSION['login_id'];
         $query = "SELECT * FROM bids WHERE user_id = '$sessionId'";
         $result = $conn->query($query);
-
         if ($result->num_rows > 0) {
     ?>
             <div class="col-md-12">
