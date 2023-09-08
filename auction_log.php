@@ -1,5 +1,8 @@
 <head>
   <link rel="stylesheet" href="css/auction_log.scss">
+  <?php 
+  include 'admin/db_connect.php'; 
+  ?>
 </head>
 <body>
   <div class="container">
@@ -22,9 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $entered_farmer_id = $_POST["farmer_id"];
   $entered_phone_number = $_POST["phone_number"];
   $entered_name = $_POST["name"];
-
-  // Database connection
-  $conn = new mysqli('localhost', 'root', '', 'kk') or die("Could not connect to mysql" . mysqli_error($con));
 
   // Check if the entered credentials exist in both tables
   $query = "SELECT * FROM auction_log WHERE farmer_id = '$entered_farmer_id' AND number = '$entered_phone_number'";
