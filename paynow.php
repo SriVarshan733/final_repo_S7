@@ -60,17 +60,15 @@ include('admin/db_connect.php');
 // Rest of your code...
 
 $sessionId = $_SESSION['login_id'];
-$conns = new mysqli('localhost', 'root', '', 'kk') or die("Could not connect to mysql" . mysqli_error($con));
 $query = "SELECT * FROM bids WHERE user_id = '$sessionId'";
-$result = $conns->query($query);
+$result = $conn->query($query);
 // Rest of your code...
 ?>
 
 <?php
 $sessionId = $_SESSION['login_id'];
-$conns = new mysqli('localhost', 'root', '', 'kk') or die("Could not connect to mysql" . mysqli_error($con));
 $query = "SELECT * FROM bids WHERE user_id = '$sessionId'";
-$result = $conns->query($query);
+$result = $conn->query($query);
 if ($result->num_rows > 0) {
 ?>
 <?php
@@ -81,7 +79,7 @@ if ($result->num_rows > 0) {
     $status = $row['status'];
     $date_created = $row['date_created'];
     $queryForProdcut = "SELECT * FROM products WHERE id = '$product_id'";
-    $resultForProduct = $conns->query($queryForProdcut);
+    $resultForProduct = $conn->query($queryForProdcut);
     while($row1 = $resultForProduct->fetch_assoc()) {
         $contact = $row1['contact'];
         $address = $row1['address'];
