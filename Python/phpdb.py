@@ -2,9 +2,9 @@ import mysql.connector
 from datetime import datetime
 
 # Replace these with your database connection details
-host = "database-1.cwa1v3hdvy5b.us-east-1.rds.amazonaws.com"
-user = "admin"
-password = "admin123"
+host = "localhost"
+user = "root"
+password = ""
 database = "kk"
 
 
