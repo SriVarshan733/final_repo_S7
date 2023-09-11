@@ -61,7 +61,7 @@
 									<td class="">
 										 <p>Name : <b><?php echo ucwords($row['username']) ?>,</b></p>
 										 <p><small>Description : <b><?php echo $row['contact'] ?>,</b></small></p>
-										 <p><small>Address : <b><?php echo $row['address'] ?></b>.</small></p>7
+										 <p><small>Address : <b><?php echo $row['address'] ?></b>.</small></p>
 									</td>
 									<td>
 										 <p><small>Regular Price: <b><?php echo number_format($row['regular_price'],2) ?></b></small></p>
