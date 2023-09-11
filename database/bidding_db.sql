@@ -103,6 +103,10 @@ CREATE TABLE `products` (
   `bid_amt` BIGINT(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+ALTER TABLE products
+ADD farmer_id BIGINT(30) NOT NULL;
+
+
 --
 -- Dumping data for table `products`
 --
