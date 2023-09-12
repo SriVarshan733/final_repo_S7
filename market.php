@@ -109,7 +109,7 @@
             </ul>
             <center><h8 style="color:red;">*Please note that above shown content in the table is just a prediction made by our team</h8></center>
         </div>
-        <br></br>git 
+        <br></br>
 
         <script>
             // Replace this URL with the actual URL of your JSON file

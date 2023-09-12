@@ -25,8 +25,8 @@
 								<tr>
 									<th class="text-center">S.no</th>
 									<th class="">Img</th>
-									<th class="">Category</th>
 									<th class="">Product</th>
+									<th class="">Buyer</th>
 									<th class="">Other Info</th>
 									<th class="text-center">Action</th>
 								</tr>
@@ -56,11 +56,12 @@
 										 </div>
 									</td>
 									<td>
-										 <p> <b><?php echo ucwords($cat[$row['category_id']]) ?></b></p>
+										 <p> <b><?php echo ucwords($row['name']) ?></b></p>
 									</td>
 									<td class="">
-										 <p>Name: <b><?php echo ucwords($row['name']) ?></b></p>
-										 <p><small>Description: <b><?php echo $row['description'] ?></b></small></p>
+										 <p>Name : <b><?php echo ucwords($row['username']) ?>,</b></p>
+										 <p><small>Description : <b><?php echo $row['contact'] ?>,</b></small></p>
+										 <p><small>Address : <b><?php echo $row['address'] ?></b>.</small></p>
 									</td>
 									<td>
 										 <p><small>Regular Price: <b><?php echo number_format($row['regular_price'],2) ?></b></small></p>

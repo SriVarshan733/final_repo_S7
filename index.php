@@ -256,7 +256,6 @@ $('#find-car').submit(function(e) {
     location.href = 'index.php?page=search&' + $(this).serialize()
 })
 </script>
-<?php $conn->close() ?>
 <script>
 function runPythonScriptAndRedirect() {
     // Use AJAX to call the PHP script to run the Python code

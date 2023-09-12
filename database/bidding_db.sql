@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bidding_db`
+-- Database: `kk`
 --
 
 -- --------------------------------------------------------
@@ -102,6 +102,10 @@ CREATE TABLE `products` (
   `seller_authId` BIGINT(20) NOT NULL,
   `bid_amt` BIGINT(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE products
+ADD farmer_id BIGINT(30) NOT NULL;
+
 
 --
 -- Dumping data for table `products`
