@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <link rel="icon" type="image/x-icon" href="https://img.icons8.com/?size=512&id=ME2aFAiY2j6h&format=png">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <?php
     session_start();
     include('admin/db_connect.php');
@@ -55,7 +57,7 @@
           <span class="tooltip">Home</span>
         </li>
         <li>
-          <a href="index.php?page=cart" onclick="runPythonScriptAndRedirect();">
+          <a href="#" id="cart-link">
             <i class="bx bx-cart-alt"></i>
             <span class="links_name">Cart</span>
           </a>
@@ -63,21 +65,21 @@
         </li>
         <?php if(isset($_SESSION['login_id'])): ?>
         <li>
-          <a href="index.php?page=bids_user" onclick="runPythonScriptAndRedirect();">
+          <a href="index.php?page=bids_user">
             <i class="bx bx-user"></i>
             <span class="links_name " href=""><?php echo $_SESSION['login_name'] ?></span>
           </a>
           <span class="tooltip"><?php echo $_SESSION['login_name'] ?></span>
         </li>
         <li>
-          <a href="auction_log.php" onclick="runPythonScriptAndRedirect();">
+          <a href="auction_log.php">
             <i class="bx bx-folder"></i>
             <span class="links_name">Post Auction</span>
           </a>
           <span class="tooltip">Post Auction</span>
         </li>
         <li>
-          <a href="index.php?page=contact" onclick="runPythonScriptAndRedirect();">
+          <a href="index.php?page=contact">
           <i class='bx bx-mail-send'></i>
             <span class="links_name">Contact</span>
           </a>
@@ -93,21 +95,21 @@
         </li>
         <?php endif; ?>
         <li>
-          <a href="index.php?page=market" onclick="runPythonScriptAndRedirect();">
+          <a href="index.php?page=market">
             <i class="bx bx-pie-chart-alt-2"></i>
             <span class="links_name">Analytics</span>
           </a>
           <span class="tooltip">Analytics</span>
         </li>
         <li>
-          <a href="index.php?page=about" onclick="runPythonScriptAndRedirect();">
+          <a href="index.php?page=about">
             <i class="bx bx-book"></i>
             <span class="links_name">Policy</span>
           </a>
           <span class="tooltip">Policy</span>
         </li>
         <li>
-          <a href="index.php?page=Subcriptions" onclick="runPythonScriptAndRedirect();">
+          <a href="index.php?page=Subcriptions">
           <i class='bx bx-user-plus'></i>
             <span class="links_name">Subcriptions</span>
           </a>
@@ -139,7 +141,7 @@
       </ul>
     </div>
     <section class="home-section">
-    <a href="index.php?page=home" onclick="runPythonScriptAndRedirect();"><img src=images/new-head.png width="1270px" height="80px"></a>
+    <a href="index.php?page=home"><img src=images/new-head.png width="1270px" height="80px"></a>
       <main id="main-field">
         <?php 
         $page = isset($_GET['page']) ? $_GET['page'] : 'home';
@@ -257,17 +259,28 @@ $('#find-car').submit(function(e) {
 })
 </script>
 <script>
-function runPythonScriptAndRedirect() {
-    // Use AJAX to call the PHP script to run the Python code
+$(document).ready(function() {
+  $("#cart-link").click(function(e) {
+    e.preventDefault(); // Prevent the default link behavior (page navigation)
+
     $.ajax({
-        type: "GET",
-        url: "run_python.php", // This is the URL of the PHP script you created
-        success: function() {
-            // Redirect to the desired location after running the Python script
-            window.location.href = "index.php?page=cart";
-        }
+      type: "POST",
+      url: "addcart.php",
+      success: function(response) {
+        // Handle the response from the PHP file (if needed)
+        console.log("Data Updated Successfully: " + response);
+        
+        // Redirect to index.php?page=cart after a successful response
+        window.location.href = "index.php?page=cart";
+      },
+      error: function(xhr, status, error) {
+        // Handle errors here (if any)
+        console.error("Error: " + error);
+      }
     });
-}
+  });
+});
 </script>
+
 
 </html>
