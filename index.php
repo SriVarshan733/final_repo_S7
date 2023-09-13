@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <link rel="icon" type="image/x-icon" href="https://img.icons8.com/?size=512&id=ME2aFAiY2j6h&format=png">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <?php
     session_start();
     include('admin/db_connect.php');
@@ -55,7 +57,7 @@
           <span class="tooltip">Home</span>
         </li>
         <li>
-          <a href="index.php?page=cart" onclick="runPythonScriptAndRedirect();">
+          <a href="#" id="cart-link">
             <i class="bx bx-cart-alt"></i>
             <span class="links_name">Cart</span>
           </a>
@@ -269,5 +271,29 @@ function runPythonScriptAndRedirect() {
     });
 }
 </script>
+<script>
+$(document).ready(function() {
+  $("#cart-link").click(function(e) {
+    e.preventDefault(); // Prevent the default link behavior (page navigation)
+
+    $.ajax({
+      type: "POST",
+      url: "addcart.php",
+      success: function(response) {
+        // Handle the response from the PHP file (if needed)
+        console.log("Data Updated Successfully: " + response);
+        
+        // Redirect to index.php?page=cart after a successful response
+        window.location.href = "index.php?page=cart";
+      },
+      error: function(xhr, status, error) {
+        // Handle errors here (if any)
+        console.error("Error: " + error);
+      }
+    });
+  });
+});
+</script>
+
 
 </html>
