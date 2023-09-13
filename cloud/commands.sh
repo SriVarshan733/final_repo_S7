@@ -4,9 +4,9 @@ sudo apt install apache2
 sudo apt install software-properties-common
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update
-sudo apt install python3.8
+sudo apt install python3.11.5
 wget https://bootstrap.pypa.io/get-pip.py
-sudo python3.8 get-pip.py
+sudo python3.11.5 get-pip.py
 pip install mysql-connector-python
 import mysql.connector
 print(mysql.connector.__version__)
