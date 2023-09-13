@@ -7,6 +7,7 @@ user = "root"
 password = ""
 database = "kk"
 
+
 def connect():
     try:
         connection = mysql.connector.connect(
@@ -17,6 +18,36 @@ def connect():
     except mysql.connector.Error as e:
         print("Error:", e)
 
+
+def getListOfProductId(conn):
+    cursor = conn.cursor()
+    query = "SELECT DISTINCT product_id FROM bids"
+    cursor.execute(query)
+    results = cursor.fetchall()
+    return [product[0] for product in results]
+
+
+def checkChangeTheStatus(conn, listOfProductId):
+    cursor = conn.cursor()
+
+    for product_id in listOfProductId:
+        # Get the highest bid_amount for the product_id
+        highest_bid_query = f"SELECT MAX(bid_amount) FROM bids WHERE product_id = {product_id}"
+        cursor.execute(highest_bid_query)
+        highest_bid = cursor.fetchone()[0]
+
+        # Update the status to 2 only for the highest bid_amount
+        update_query = f"UPDATE bids SET status = 2 WHERE product_id = {product_id} AND bid_amount = {highest_bid}"
+        cursor.execute(update_query)
+        conn.commit()
+
+    print("Data Updated Successfully.")
+
+
+connection = connect()
+listOfProductId = getListOfProductId(connection)
+checkChangeTheStatus(connection, listOfProductId)
+
 def getListOfProductId(conn):
     cursor = conn.cursor()
     query = "SELECT DISTINCT product_id FROM bids WHERE status = 2"
@@ -24,29 +55,42 @@ def getListOfProductId(conn):
     results = cursor.fetchall()
     return [product[0] for product in results]
 
-def updateProductsTable(conn, product_id, buyer_id, bid_amt):
+
+def updateProductTable(conn, product_id, buyer_id, bid_amt):
     cursor = conn.cursor()
+    
+    # Update the product table with buyer_id and bid_amt
     update_query = f"UPDATE products SET buyer_id = {buyer_id}, bid_amt = {bid_amt} WHERE id = {product_id}"
     cursor.execute(update_query)
     conn.commit()
+    
+    print(f"Updated product ID {product_id} with buyer_id {buyer_id} and bid_amt {bid_amt}.")
+
 
 def checkChangeTheStatus(conn, listOfProductId):
     cursor = conn.cursor()
 
     for product_id in listOfProductId:
-        # Get the highest bid_amount and buyer_id for the product_id where status = 2
-        highest_bid_query = f"SELECT MAX(bid_amount), user_id FROM bids WHERE product_id = {product_id} AND status = 2"
+        # Get the highest bid_amount for the product_id
+        highest_bid_query = f"SELECT MAX(bid_amount) FROM bids WHERE product_id = {product_id}"
         cursor.execute(highest_bid_query)
-        result = cursor.fetchone()
+        highest_bid = cursor.fetchone()[0]
+
+        # Update the status to 2 only for the highest bid_amount
+        update_query = f"UPDATE bids SET status = 2 WHERE product_id = {product_id} AND bid_amount = {highest_bid}"
+        cursor.execute(update_query)
+        conn.commit()
         
-        if result:
-            highest_bid, buyer_id = result
-            updateProductsTable(conn, product_id, buyer_id, highest_bid)
-            print(f"Updated product {product_id}: buyer_id={buyer_id}, bid_amt={highest_bid}")
-        else:
-            print(f"No valid bid found for product {product_id}")
+        # Get the buyer_id for the highest bid
+        buyer_id_query = f"SELECT user_id FROM bids WHERE product_id = {product_id} AND bid_amount = {highest_bid}"
+        cursor.execute(buyer_id_query)
+        buyer_id = cursor.fetchone()[0]
+        
+        # Update the product table with buyer_id and bid_amt
+        updateProductTable(conn, product_id, buyer_id, highest_bid)
 
     print("Data Updated Successfully.")
+
 
 connection = connect()
 listOfProductId = getListOfProductId(connection)
