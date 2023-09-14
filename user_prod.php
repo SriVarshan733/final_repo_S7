@@ -17,7 +17,6 @@
 					<div class="card-header">
 						<b>List of Products</b>
 						<span class="float:right"><a class="button-18 float-right" href="index.php?page=post_auction" id="new_product">New Entry</a></span>
-				        <span class="float:right"><a class="button-18 float-right" href="index.php?page=notification" id="new_product">Notification</a></span>
 					</div>
 					<div class="card-body">
 						<table class="table table-condensed table-bordered table-hover">
