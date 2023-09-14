@@ -220,6 +220,7 @@ img#img_path-field{
 <div class="imgF" style="display: none " id="img-clone">
 			<span class="rem badge badge-primary" onclick="rem_func($(this))"><i class="fa fa-times"></i></span>
 	</div>
+	<br></br>
 <script>
 	$('#payment_status').on('change keypress keyup',function(){
 		if($(this).prop('checked') == true){
