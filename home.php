@@ -114,3 +114,4 @@ $cat_arr[$row['id']] = $row['name'];
         uni_modal_right('View Product','view_prod.php?id='+$(this).attr('data-id'))
      })
 </script>
+<script>(function(w, d) { w.CollectId = "650286c717960a15b2336776"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async=true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>
