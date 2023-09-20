@@ -50,7 +50,7 @@
       </div>
       <ul class="nav-list">
         <li>
-          <a href="index.php?page=home" onclick="runPythonScriptAndRedirect();">
+          <a href="index.php?page=home">
             <i class="bx bx-home"></i>
             <span class="links_name">Home</span>
           </a>
