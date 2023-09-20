@@ -79,11 +79,11 @@
           <span class="tooltip">Post Auction</span>
         </li>
         <li>
-          <a href="index.php?page=contact">
-          <i class='bx bx-mail-send'></i>
-            <span class="links_name">Contact</span>
+          <a href="index.php?page=weather">
+          <i class='bx bx-cloud'></i>
+            <span class="links_name">Forecast</span>
           </a>
-          <span class="tooltip">Contact</span>
+          <span class="tooltip">Forecast</span>
         </li>
         <?php else: ?>
             <li>
