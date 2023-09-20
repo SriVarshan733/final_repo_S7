@@ -8,6 +8,7 @@
     <script src="js/weather.js" defer></script>
   </head>
   <body>
+  <div class="outline-box">
     <div class="container">
       <div class="weather-input">
         <h3>Enter a City Name</h3>
@@ -62,6 +63,7 @@
         </div>
       </div>
     </div>
-    
+  </div>
   </body>
+  <br></br>
 </html>
