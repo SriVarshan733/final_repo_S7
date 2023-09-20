@@ -75,18 +75,16 @@ $cat_arr[$row['id']] = $row['name'];
                                while ($row = $result->fetch_assoc()):
                              ?>
                              <div class="col-sm-4">
-                                 <div class="card" style="height: 13cm; width: 7cm;">
+                                 <div class="card" style="height: 12cm; width: 7cm; box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;">
                                     <div class="float-right align-top bid-tag">
-                                         <span class="badge badge-pill badge-primary text-white"><i class="fa fa-tag"></i> <?php echo number_format($row['start_bid']) ?></span>
+                                         <span class="badge badge-pill badge-primary text-white"><i class="fa fa-tag"></i> <?php echo $row['highest_bid'] ?></span>
                                      </div>
-                                     <img class="card-img-top" src="admin/assets/uploads/<?php echo $row['img_fname'] ?>" alt="Card image cap">
+                                     <img class="card-img-top" style="height: 9cm; width: 6.94cm;" src="admin/assets/uploads/<?php echo $row['img_fname'] ?>" alt="Card image cap">
                                       <div class="float-right align-top d-flex">
                                          <span style="width: 5.5cm;" class="badge badge-pill badge-warning text-white"><i class="fa fa-hourglass-half"></i> End : <?php echo date("M d,Y h:i A",strtotime($row['bid_end_datetime'])) ?></span>
                                      </div>
                                      <div class="card-body prod-item">
                                          <p><center><b><?php echo $row['name'] ?></b></center></p>
-                                         <p><center>Category: <?php echo $cat_arr[$row['category_id']] ?></center></p>
-                                         <p><center>Current Bid: <b>₹<?php echo $row['highest_bid'] ?></center></b></p>
                                         <center><button class="btn btn-primary btn-sm view_prod" type="button" data-id="<?php echo $row['id'] ?>">Bid Now !</button></center>
                                      </div>
                                  </div>
