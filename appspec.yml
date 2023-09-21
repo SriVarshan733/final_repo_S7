@@ -1,0 +1,74 @@
+version: 0.0
+os: linux
+files:
+  - source: /admin
+    destination: /var/www/html/admin
+  - source: /assets
+    destination: /var/www/html/assets
+  - source: /css
+    destination: /var/www/html/css
+  - source: /database
+    destination: /var/www/html/database
+  - source: /images
+    destination: /var/www/html/images
+  - source: /js
+    destination: /var/www/html/js
+  - source: /about.php
+    destination: /var/www/html/about.php
+  - source: /addcart.php
+    destination: /var/www/html/addcart.php
+  - source: /auction_log.php
+    destination: /var/www/html/auction_log.php
+  - source: /bids_user.php
+    destination: /var/www/html/bids_user.php
+  - source: /cart.php
+    destination: /var/www/html/cart.php
+  - source: /footer.php
+    destination: /var/www/html/footer.php
+  - source: /fruits.php
+    destination: /var/www/html/fruits.php
+  - source: /header.php
+    destination: /var/www/html/header.php
+  - source: /home.php
+    destination: /var/www/html/home.php
+  - source: /index.php
+    destination: /var/www/html/index.php
+  - source: /login.php
+    destination: /var/www/html/login.php
+  - source: /market.php
+    destination: /var/www/html/market.php
+  - source: /payment_process.php
+    destination: /var/www/html/payment_process.php
+  - source: /paynow.php
+    destination: /var/www/html/paynow.php
+  - source: /post_auction.php
+    destination: /var/www/html/post_auction.php
+  - source: /README.md
+    destination: /var/www/html/README.md
+  - source: /signup.php
+    destination: /var/www/html/signup.php
+  - source: /Subscriptions.php
+    destination: /var/www/html/Subscriptions.php
+  - source: /Testhome.php
+    destination: /var/www/html/Testhome.php
+  - source: /user_prod.php
+    destination: /var/www/html/user_prod.php
+  - source: /vegetable.php
+    destination: /var/www/html/vegetable.php
+  - source: /view_prod.php
+    destination: /var/www/html/view_prod.php
+  - source: /weather.php
+    destination: /var/www/html/weather.php
+
+hooks:
+  BeforeInstall:
+    - location: cloud/install_dependencies
+      timeout: 300
+      runas: root
+    - location: cloud/start_server
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: cloud/stop_server
+      timeout: 300
+      runas: root
