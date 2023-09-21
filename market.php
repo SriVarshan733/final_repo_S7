@@ -91,6 +91,25 @@
                 text-align: right;
             }
         }
+
+        .switch {
+            display: flex;
+            gap: 0.5cm; /* Adjust the gap as needed */
+            position: absolute;
+            top: 250px   ;
+            right: 148px;
+        }
+
+        .box {
+            width: 130px; /* Adjust the width of the boxes as needed */
+            height: 30px; /* Adjust the height of the boxes as needed */
+            background-color: #8e9091; /* Adjust the background color as needed */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            color: white;
+        }
     </style>
 </head>
 
@@ -98,7 +117,11 @@
     <!-- Price List Section -->
         <div class="container">
             <center><h2><i class="bx bx-money"></i> Demand</h2></center>
-            <br></br>
+            <br></br><br></br>
+            <div class="switch">
+                <a href="index.php?page=vegetable"><div class="box">Vegetable</div></a>
+                <a href="index.php?page=fruits"><div class="box">Fruits</div></a>
+            </div>
             <ul class="responsive-table" id="marketTable">
                 <li class="table-header">
                     <div class="col col-1">S.No</div>
