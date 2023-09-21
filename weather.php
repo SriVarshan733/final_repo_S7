@@ -8,8 +8,9 @@
     <script src="js/weather.js" defer></script>
   </head>
   <body>
-  <center><h2><i class='bx bx-cloud-drizzle' ></i>Forecast</h2></center>
   <div class="outline-box">
+  <center><h2><i class='bx bx-cloud-drizzle'></i>Forecast</h2></center>
+  <br>
     <div class="container">
       <div class="weather-input">
         <h3>Enter a City Name</h3>
