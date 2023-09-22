@@ -140,7 +140,7 @@ if ($result->num_rows > 0) {
             data: "amt=" + amt + "&name=" + name,
             success: function (result) {
                 var options = {
-                    "key": "rzp_test_35KB49UYo7xAQa",
+                    "key": "rzp_test_JC5zcAEJ9EYE43",
                     "amount": amt * 100,
                     "currency": "INR",
                     "name": "Bid.it",
