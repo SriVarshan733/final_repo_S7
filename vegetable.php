@@ -131,7 +131,7 @@
     <!-- Price List Section -->
     <div class="container">
         <center>
-            <h2><i class="bx bx-money"></i>VEGETABLES</h2>
+            <h2><i class="bx bx-money"></i>Vegetables</h2>
         </center>
         <br><br></br></br>
         <div class="switch">
