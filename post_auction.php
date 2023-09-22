@@ -173,6 +173,7 @@ img#img_path-field{
 								<?php endwhile; ?>
 							</select>
 						</div>
+						
 					</div>
 					<div class="form-group row">
 						<div class="col-md-10">
@@ -209,7 +210,7 @@ img#img_path-field{
 					</div>
 					<div class="row">
 						<div class="col-md-12">
-							<button class="btn btn-sm btn-block btn-primary col-sm-2">Sell now</button>
+							<button class="btn btn-sm btn-block btn-primary col-sm-2"> Save</button>
 						</div>
 					</div>
 				</form>
@@ -220,7 +221,6 @@ img#img_path-field{
 <div class="imgF" style="display: none " id="img-clone">
 			<span class="rem badge badge-primary" onclick="rem_func($(this))"><i class="fa fa-times"></i></span>
 	</div>
-	<br></br>
 <script>
 	$('#payment_status').on('change keypress keyup',function(){
 		if($(this).prop('checked') == true){
@@ -247,7 +247,7 @@ img#img_path-field{
 				if(resp==1){
 					alert_toast("Data successfully saved",'success')
 					setTimeout(function(){
-						location.href = "index.php?page=home"
+						location.href = "index.php?page=user_prod"
 					},1500)
 
 				}
