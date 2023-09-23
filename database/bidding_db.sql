@@ -73,11 +73,11 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`) VALUES
-(1, 'Sample Category'),
-(2, 'Appliances'),
-(3, 'Desktop Computers'),
-(4, 'Laptop'),
-(5, 'Mobile Phone');
+(1, 'Vegetables'),
+(2, 'Fruits'),
+(3, 'Farming-Equi'),
+(4, 'Vegan'),
+(5, 'Non Vegan');
 
 -- --------------------------------------------------------
 
