@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($user_result->num_rows > 0) {
       // Login successful, redirect to index.php
-      header("Location: index.php?page=user_prod");
+      header("Location: index.php?page=otp");
       exit;
     } else {
       echo "Invalid name or credentials. Please try again.";
