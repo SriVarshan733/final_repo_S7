@@ -20,7 +20,6 @@ $category = $cat_qry->num_rows > 0 ? $cat_qry->fetch_array()['name'] : '' ;
 	<br>
 	<p>Product Name: <large><b><?php echo $name ?></b></large></p>
 	<p>Category: <b><?php echo $category ?></b></p>
-	<p>Highest Bid: <b id="hbid"><?php echo number_format($start_bid,2) ?></b></p>
 	<p>Description: <b><?php echo $description ?></b></p>
 	<div class="col-md-12">
 		<button class="btn btn-primary btn-block btn-sm" type="button" id="bid">Bid</button>
