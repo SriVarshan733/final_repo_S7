@@ -40,7 +40,7 @@
 									$cat[$row['id']] = $row['name'];
 								}
 								$sessionId = $_SESSION['login_id'];
-                                $conns = new mysqli('database-1.cwa1v3hdvy5b.us-east-1.rds.amazonaws.com', 'admin', 'admin123', 'kk') or die("Could not connect to mysql" . mysqli_error($con));
+                                $conns = new mysqli('localhost', 'root', '', 'kk') or die("Could not connect to mysql" . mysqli_error($con));
 								$products = $conn->query("SELECT * FROM products where seller_authId = '$sessionId' order by name asc ");
 								while($row=$products->fetch_assoc()):
 									$get = $conn->query("SELECT * FROM bids where product_id = {$row['id']} order by bid_amount desc limit 1 ");

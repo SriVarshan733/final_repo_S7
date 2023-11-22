@@ -133,10 +133,10 @@
 
 			</div>
 			<?php
-                $host = "database-1.cwa1v3hdvy5b.us-east-1.rds.amazonaws.com";
+                $host = "localhost";
                 $dbname = "kk";
-                $username = "admin";
-                $password = "admin123";
+                $username = "root";
+                $password = "";
             try {
                 $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
